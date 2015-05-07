@@ -1,3 +1,5 @@
+package java.org.daisci.nn.mlp;
+
 
 public class Neuron {
 
