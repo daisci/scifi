@@ -1,11 +1,16 @@
 package java.org.daisci.nn.convolutional;
 
+import java.org.daisci.nn.common.IActivationFunction;
+import java.org.daisci.nn.common.layer.ILayer;
+import java.org.daisci.nn.common.ILayerActivator;
+import java.org.daisci.nn.common.layer.ILayer2d;
+
 /**
  * Created by dkudryavtsev on 4/30/15.
  */
-public class LayerActivator {
+public class LayerActivator implements ILayerActivator{
 
-    public void activate(Layer active, Layer toActivate, ActivationFunction aFunc){
+    public void activate(ILayer2d active, ILayer2d toActivate, IActivationFunction aFunc){
         double signalSum = 0;
         double weight = 0;
         for (int a = 0; a < toActivate.getRows()*toActivate.getCols(); a++) {

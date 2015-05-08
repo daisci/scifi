@@ -1,9 +1,12 @@
 package java.org.daisci.nn.convolutional;
 
+import java.org.daisci.nn.common.layer.ILayer;
+import java.org.daisci.nn.common.layer.ILayer2d;
+
 /**
  * Created by dkudryavtsev on 4/28/15.
  */
-public class Layer {
+public class Layer implements ILayer2d{
     private int cols;
     private int rows;
     private double[][] weight;
@@ -34,6 +37,9 @@ public class Layer {
 
     public double getWeight(int row, int col){
         return weight[row][col];
+    }
+    public double setWeight(int row, int col, double value){
+        return weight[row][col] = value;
     }
 
     public int getCols() {

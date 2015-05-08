@@ -1,5 +1,8 @@
 package java.org.daisci.nn.convolutional;
 
+import java.org.daisci.nn.common.IActivationFunction;
+import java.org.daisci.nn.common.ILayerActivator;
+import java.org.daisci.nn.common.INetwork;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,14 +10,12 @@ import java.util.List;
 /**
  * Created by dkudryavtsev on 4/30/15.
  */
-public class Network {
+public class Network implements INetwork {
     private List<Layer> layers = new LinkedList<>();
     private InputLayer inputLayer;
     private OutputLayer outputLayer;
 
-
-
-    public void forwardPropagation(LayerActivator layerActivator, ActivationFunction aFunc) {
+    public void forwardPropagation(ILayerActivator layerActivator, IActivationFunction aFunc) {
         Iterator<Layer> layerItr = layers.listIterator();
         if (layerItr.hasNext()) {
             Layer current = layerItr.next();
@@ -30,7 +31,7 @@ public class Network {
 
     }
 
-    public void backPropagation(){
+    public void backPropagation(ILayerActivator layerActivator, IActivationFunction aFunc){
 
     }
 }
